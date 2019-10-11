@@ -14,7 +14,8 @@ public class ArrayList<T> {
      *   3. This constructor will need to set the current size to 0
      */
     ArrayList() {
-
+        elements = new Object[INITIAL_SIZE];
+        size = 0;
     }
 
     /**
