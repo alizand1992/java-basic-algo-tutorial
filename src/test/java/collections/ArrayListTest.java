@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class ArrayListTest {
     // Constructor Tests
-//    @Ignore
+    // @Ignore
     @Test
     public void defaultConstructorSetsTheParamsCorrectly() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -15,7 +15,7 @@ public class ArrayListTest {
         assertEquals(0, arrayList.size());
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void constructorWithSizeSetsCorrectArraySizeAndSize() throws Exception {
         ArrayList<Integer> arrayList = new ArrayList<>(50);
@@ -24,7 +24,7 @@ public class ArrayListTest {
         assertEquals(0, arrayList.size());
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void arrayConstructorCopiesTheArrayCorrectlyAndSetValues() throws Exception {
         Integer[] numbers = new Integer[20];
@@ -45,7 +45,7 @@ public class ArrayListTest {
         }
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void copyConstructorCopiesValues() throws Exception {
         Integer[] numbers = new Integer[5];
@@ -57,7 +57,7 @@ public class ArrayListTest {
         ArrayList<Integer> arrayList1 = new ArrayList<>(numbers);
         ArrayList<Integer> arrayList2 = new ArrayList<>(arrayList1);
 
-        Integer[] elements = (Integer[])arrayList2.toArray();
+        Object[] elements = arrayList2.toArray();
 
         assertEquals(10, elements.length);
         assertEquals(5, arrayList2.size());
@@ -67,7 +67,7 @@ public class ArrayListTest {
         }
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void addWillIncreaseTheSizeByOne() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -76,7 +76,7 @@ public class ArrayListTest {
         assertEquals(1, arrayList.size());
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void addWillInreaseTheSizeAsManyAsAdded() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -88,7 +88,7 @@ public class ArrayListTest {
         assertEquals(4, arrayList.size());
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void addWillIncreaseTheInternalArraySizeByExpansionRateWhenFull() {
         ArrayList<Integer> arrayList = new ArrayList<>(5);
@@ -100,7 +100,7 @@ public class ArrayListTest {
         assertEquals(7, arrayList.size());
     }
 
-    @Ignore
+    // @Ignore
     @Test(expected = IndexOutOfBoundsException.class)
     public void getThrowsIndexOutOfBoundIfOutOfBound() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -108,7 +108,7 @@ public class ArrayListTest {
     }
 
     // Remove tests.
-    @Ignore
+    // @Ignore
     @Test
     public void removeReducesTheSizeByOne() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -120,7 +120,7 @@ public class ArrayListTest {
         assertEquals(4, arrayList.size());
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void removeRemovesTheCorrectIndex() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -133,7 +133,7 @@ public class ArrayListTest {
         assertNotEquals(unexpected, arrayList.get(2));
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void removeShiftsEverythingAfterRemovedIndex() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -150,7 +150,7 @@ public class ArrayListTest {
         assertEquals(excpected, arrayList.get(4));
     }
 
-    @Ignore
+    // @Ignore
     @Test(expected = IndexOutOfBoundsException.class)
     public void removeWillThrowIndexExceptionIfOutOfBounds() {
         ArrayList<Integer> arrayList = new ArrayList<>();

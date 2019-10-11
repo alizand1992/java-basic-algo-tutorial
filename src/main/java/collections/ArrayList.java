@@ -14,7 +14,7 @@ public class ArrayList<T> {
      *   3. This constructor will need to set the current size to 0
      */
     ArrayList() {
-
+        this(INITIAL_SIZE);
     }
 
     /**
@@ -25,7 +25,8 @@ public class ArrayList<T> {
      * @param init_size custom size to initialize the internal array to
      */
     ArrayList(int init_size) {
-
+        elements = new Object[init_size];
+        size = 0;
     }
 
     /**
@@ -39,8 +40,21 @@ public class ArrayList<T> {
      *
      * @param arr array to create the array list with
      */
-    ArrayList(T[] arr) {
+    ArrayList(Object[] arr) {
+        this();
 
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == null) {
+                continue;
+            }
+
+            if (elements.length == size) {
+                this.expand();
+            }
+
+            elements[i] = arr[i];
+            size++;
+        }
     }
 
     /**
@@ -55,7 +69,7 @@ public class ArrayList<T> {
      * @param rhs The ArrayList to be copied into this one
      */
     ArrayList(ArrayList<T> rhs) {
-
+        this(rhs.toArray());
     }
 
     /**
@@ -73,7 +87,7 @@ public class ArrayList<T> {
      * @param item item to be added
      */
     public void add(T item) {
-
+        size++;
     }
 
     /**
@@ -125,5 +139,16 @@ public class ArrayList<T> {
      */
     public Object[] toArray() {
         return elements;
+    }
+
+    private void expand() {
+        int newSize = (int)(size * EXPANSION_RATE);
+        Object[] newElements = new Object[newSize];
+
+        for (int i = 0; i < elements.length; i++) {
+            newElements[i] = elements[i];
+        }
+
+        elements = newElements;
     }
 }
