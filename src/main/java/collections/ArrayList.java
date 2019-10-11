@@ -26,7 +26,8 @@ public class ArrayList<T> {
      * @param init_size custom size to initialize the internal array to
      */
     ArrayList(int init_size) {
-
+        elements = new Object[init_size];
+        size = 0;
     }
 
     /**
