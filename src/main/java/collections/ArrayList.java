@@ -87,7 +87,7 @@ public class ArrayList<T> {
      * @param item item to be added
      */
     public void add(T item) {
-
+        size++;
     }
 
     /**
