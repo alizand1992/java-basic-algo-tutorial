@@ -57,7 +57,7 @@ public class ArrayListTest {
         ArrayList<Integer> arrayList1 = new ArrayList<>(numbers);
         ArrayList<Integer> arrayList2 = new ArrayList<>(arrayList1);
 
-        Integer[] elements = (Integer[])arrayList2.toArray();
+        Object[] elements = arrayList2.toArray();
 
         assertEquals(10, elements.length);
         assertEquals(5, arrayList2.size());

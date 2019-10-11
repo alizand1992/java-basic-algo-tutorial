@@ -44,6 +44,10 @@ public class ArrayList<T> {
         this();
 
         for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == null) {
+                continue;
+            }
+
             if (elements.length == size) {
                 this.expand();
             }
@@ -65,7 +69,7 @@ public class ArrayList<T> {
      * @param rhs The ArrayList to be copied into this one
      */
     ArrayList(ArrayList<T> rhs) {
-
+        this(rhs.toArray());
     }
 
     /**
