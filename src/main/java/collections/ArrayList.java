@@ -40,8 +40,17 @@ public class ArrayList<T> {
      *
      * @param arr array to create the array list with
      */
-    ArrayList(T[] arr) {
+    ArrayList(Object[] arr) {
+        this();
 
+        for (int i = 0; i < arr.length; i++) {
+            if (elements.length == size) {
+                this.expand();
+            }
+
+            elements[i] = arr[i];
+            size++;
+        }
     }
 
     /**
@@ -126,5 +135,16 @@ public class ArrayList<T> {
      */
     public Object[] toArray() {
         return elements;
+    }
+
+    private void expand() {
+        int newSize = (int)(size * EXPANSION_RATE);
+        Object[] newElements = new Object[newSize];
+
+        for (int i = 0; i < elements.length; i++) {
+            newElements[i] = elements[i];
+        }
+
+        elements = newElements;
     }
 }

@@ -35,13 +35,13 @@ public class ArrayListTest {
 
         ArrayList<Integer> arrayList = new ArrayList<>(numbers);
 
-        Integer[] elements = (Integer[])arrayList.toArray();
+        Object[] elements = arrayList.toArray();
 
         assertEquals(22, elements.length);
         assertEquals(20, arrayList.size());
 
         for (int i = 0; i < 20; i++) {
-            assertEquals(numbers[i], elements[i]);
+            assertEquals(numbers[i], (Integer)elements[i]);
         }
     }
 
