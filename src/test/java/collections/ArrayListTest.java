@@ -57,7 +57,7 @@ public class ArrayListTest {
         ArrayList<Integer> arrayList1 = new ArrayList<>(numbers);
         ArrayList<Integer> arrayList2 = new ArrayList<>(arrayList1);
 
-        Integer[] elements = (Integer[])arrayList2.toArray();
+        Object[] elements = arrayList2.toArray();
 
         assertEquals(10, elements.length);
         assertEquals(5, arrayList2.size());
@@ -78,7 +78,7 @@ public class ArrayListTest {
 
     @Ignore
     @Test
-    public void addWillInreaseTheSizeAsManyAsAdded() {
+    public void addWillIncreaseTheSizeAsManyAsAdded() {
         ArrayList<Integer> arrayList = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
@@ -99,6 +99,33 @@ public class ArrayListTest {
 
         assertEquals(7, arrayList.size());
     }
+
+    @Ignore
+    @Test
+    public void addWillAddItemToTheEndInternalArray() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            arrayList.add(i);
+        }
+
+        assertEquals(5, arrayList.toArray()[5]);
+    }
+
+    @Ignore
+    @Test(expected = IllegalArgumentException.class)
+    public void addThrowsExceptionOnNullItem() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(null);
+    }
+
+    // Bonus
+//    @Ignore
+//    @Test
+//    public void addIsChainable() {
+//        ArrayList<Integer> arrayList = new ArrayList<>();
+//        arrayList.add(1).add(2).add(3);
+//    }
 
     @Ignore
     @Test(expected = IndexOutOfBoundsException.class)
